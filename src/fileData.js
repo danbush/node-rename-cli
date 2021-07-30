@@ -61,6 +61,7 @@ module.exports.FileData = class FileData {
         fnum: (typeof(exifData) === 'object' && exifData.SubExif && exifData.SubExif.FNumber ? exifData.SubExif.FNumber : ''),
         exposure: (typeof(exifData) === 'object' && exifData.SubExif && exifData.SubExif.ExposureTime ? exifData.SubExif.ExposureTime : ''),
         date: (typeof(exifData) === 'object' && exifData.DateTime ? exifData.DateTime.split(/:|\s/)[1] : ''),
+        odate: (typeof(exifData) === 'object' && exifData.SubExif.DateTimeOriginal ? exifData.SubExif.DateTimeOriginal.split(/:|\s/)[1] : ''),
         width: (typeof(exifData) === 'object' && exifData.SubExif && exifData.SubExif.PixelXDimension ? exifData.SubExif.PixelXDimension : ''),
         height: (typeof(exifData) === 'object' && exifData.SubExif && exifData.SubExif.PixelYDimension ? exifData.SubExif.PixelYDimension : '')
       },
@@ -101,7 +102,8 @@ module.exports.FileData = class FileData {
         iso: 'The ISO sensitivity of the camera when the photo was taken',
         fnum: 'The F-stop number of the camera when the photo was taken',
         exposure: 'The exposure time of the camera when the photo was taken. Use the fraction filter to convert decimals to fractions',
-        date: 'The date on the camera when the photo was taken',
+        date: 'The date on the camera when the file was created',
+        odate: 'The date on the camera when the photo was taken',
         width: 'The pixel width of the photo',
         height: 'The pixel height of the photo'
       },
